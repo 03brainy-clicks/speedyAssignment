@@ -1,24 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
+import Header from "./components/Header";
+import TopicContext from "./context/Context";
+import List from "./components/list/List";
 
 function App() {
+  const [activeState, setActiveState] = useState("all");
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <TopicContext.Provider value={{ activeState, setActiveState }}>
+        <div className="text-gray-800 bg-gray-100 min-h-screen flex flex-col gap-5">
+          <Header />
+          <List />
+        </div>
+      </TopicContext.Provider>
+    </>
   );
 }
 

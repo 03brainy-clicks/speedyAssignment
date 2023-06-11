@@ -1,13 +1,21 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.btn {
+  @apply bg-cornflower-blue-500 hover:bg-cornflower-blue-600 active:bg-cornflower-blue-700 duration-300 transition;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+*::-webkit-scrollbar {
+  width: 2px !important;
+}
+
+/* Track */
+/* *::-webkit-scrollbar-track {
+  background: #ffffff !important;
+} */
+
+/* Handle */
+*::-webkit-scrollbar-thumb {
+  background: #f5f5f5 !important;
 }
