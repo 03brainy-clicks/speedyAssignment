@@ -93,10 +93,11 @@ const Editor = () => {
         data-aos-duration="2000"
       >
         <div className=" flex ">
-          <button onClick={handleBack} className="py-2 px-3 transition duration-300 text-xs font-semibold text-gray-500 rounded hover:text-black">
-   
-              <FontAwesomeIcon icon={faArrowLeft} /> Back
-      
+          <button
+            onClick={handleBack}
+            className="py-2 px-3 transition duration-300 text-xs font-semibold text-gray-500 rounded hover:text-black"
+          >
+            <FontAwesomeIcon icon={faArrowLeft} /> Back
           </button>
         </div>
 

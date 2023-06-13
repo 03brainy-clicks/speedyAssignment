@@ -16,15 +16,21 @@ const Preview = () => {
   return (
     <div className="bg-gray-100 p-7 min-h-screen flex flex-col ">
       <div
-        className="lg:w-6/12 md:w-8/12 w-10/12 mx-auto flex-1 bg-white p-5 h-full rounded "
+        className="lg:w-6/12 md:w-8/12 w-11/12 mx-auto flex-1 bg-white p-5 h-full rounded "
         data-aos="fade-up"
         data-aos-duration="2000"
       >
-        <button className="py-2 px-3 transition duration-300 text-xs font-semibold  rounded hover:text-black">
-          <Link to={`/editor/${blogId}`}>
-            <FontAwesomeIcon icon={faArrowLeft} /> Back
-          </Link>
-        </button>
+        <div className="flex justify-between  items-center">
+          <button className="py-2 px-3 transition duration-300 text-xs font-semibold  rounded hover:text-black">
+            <Link to={`/editor/${blogId}`}>
+              <FontAwesomeIcon icon={faArrowLeft} /> Back
+            </Link>
+          </button>
+          <span className="text-xs font-semibold uppercase">
+            {currentBlog.tone}
+          </span>
+        </div>
+
         <h2
           className="text-3xl font-bold text-center my-5"
           data-aos="fade-up"
