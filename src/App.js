@@ -223,7 +223,18 @@ function App() {
           currentBlog,
         }}
       >
-        <ToastContainer />
+        <ToastContainer
+          position="bottom-center"
+          autoClose={2000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover={false}
+          theme="light"
+        />
         <Routes>
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/preview/:blogId" element={<Preview />} />

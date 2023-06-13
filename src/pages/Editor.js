@@ -9,6 +9,8 @@ import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import Context from "../context/Context";
 import { useNavigate, useParams } from "react-router-dom";
+import { toast } from "react-toastify";
+
 
 const Editor = () => {
   const { topicList, handleSaveBlog, currentBlog, handleResetBlog } =
@@ -32,13 +34,18 @@ const Editor = () => {
   // save
   const handleSave = (e) => {
     e.preventDefault();
-    let blogDetails = {
-      topic: currentTopic?.topic,
-      content: text,
-      tone: tone,
-    };
-    console.log("BLOG : ", blogDetails);
-    handleSaveBlog(blogDetails);
+    if(tone){
+      let blogDetails = {
+        topic: currentTopic?.topic,
+        content: text,
+        tone: tone,
+      };
+      handleSaveBlog(blogDetails);
+      toast.success("Blog Saved")
+    }else
+    {
+      toast.error("Please select tone")
+    }
   };
 
   // publish
@@ -88,7 +95,7 @@ const Editor = () => {
   return (
     <div className="w-screen h-screen bg-gray-100 flex flex-col justify-between gap-7">
       <div
-        className="bg-white flex justify-between p-3 items-center gap-11 "
+        className="bg-white flex justify-between p-3 items-center gap-7  "
         data-aos="fade-down"
         data-aos-duration="2000"
       >
@@ -97,7 +104,8 @@ const Editor = () => {
             onClick={handleBack}
             className="py-2 px-3 transition duration-300 text-xs font-semibold text-gray-500 rounded hover:text-black"
           >
-            <FontAwesomeIcon icon={faArrowLeft} /> Back
+            <FontAwesomeIcon icon={faArrowLeft} />{" "}
+            <span className="sm:inline hidden">Back</span>
           </button>
         </div>
 

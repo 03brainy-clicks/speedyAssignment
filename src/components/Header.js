@@ -42,7 +42,7 @@ const Header = () => {
       </div>
 
       {/* filters */}
-      <div className="lg:w-8/12 md:w-9/12 w-10/12 mx-auto bg-white p-4 rounded"   data-aos="fade-down"
+      <div className="lg:w-8/12 md:w-9/12 w-11/12 mx-auto bg-white p-4 rounded"   data-aos="fade-down"
           data-aos-duration="2000" 
           >
         <div className=" flex justify-between items-center flex-wrap gap-5 ">
