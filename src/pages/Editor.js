@@ -141,7 +141,7 @@ const Editor = () => {
           ref={editorRef}
           value={text}
           onChange={handleTextChange}
-          className="h-full bg-red-500 rounded overflow-y-scroll "
+          className="h-full bg-white rounded overflow-y-scroll "
           modules={{
             toolbar: {
               container: [
