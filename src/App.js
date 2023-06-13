@@ -6,6 +6,13 @@ import "react-quill/dist/quill.snow.css";
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
+import Preview from "./pages/Preview";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+import AOS from "aos";
+import "aos/dist/aos.css"; // You can also use <link> for styles
+AOS.init();
 
 function App() {
   const [activeState, setActiveState] = useState("all");
@@ -179,6 +186,8 @@ function App() {
     },
   ]);
 
+  const [currentBlog, setCurrentBlog] = useState("");
+
   // topic delete
   const handleTopicDelete = (topicId) => {
     setTopicList(topicList.filter((item) => item.topicId !== topicId));
@@ -187,6 +196,16 @@ function App() {
   // topic add
   const handleTopicAdd = (topic) => {
     setTopicList([topic, ...topicList]);
+  };
+
+  // save blog
+  const handleSaveBlog = (blogData) => {
+    setCurrentBlog(blogData);
+  };
+
+  //reset blog
+  const handleResetBlog = () => {
+    setCurrentBlog("");
   };
 
   return (
@@ -199,10 +218,15 @@ function App() {
           setTopicList,
           handleTopicDelete,
           handleTopicAdd,
+          handleResetBlog,
+          handleSaveBlog,
+          currentBlog,
         }}
       >
+        <ToastContainer />
         <Routes>
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/preview" element={<Preview />} />
           <Route path="/editor/:topicId" element={<Editor />} />
           <Route path="/" element={<Home />} />
         </Routes>

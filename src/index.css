@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .btn {
-  @apply bg-cornflower-blue-500 hover:bg-cornflower-blue-600 active:bg-cornflower-blue-700 duration-300 transition;
+  @apply bg-black  duration-300 transition;
 }
 
 *::-webkit-scrollbar {
@@ -22,9 +22,12 @@
 
 .ql-container.ql-snow {
   border: none !important;
-  /* overflow-y: auto !important;
-padding: 0px 0px 5px 0px; */
+  overflow: hidden !important;
 }
+.ql-container.ql-editor {
+  overflow: hidden !important;
+}
+
 .ql-toolbar.ql-snow {
   border: none !important;
   /* position: sticky !important; */

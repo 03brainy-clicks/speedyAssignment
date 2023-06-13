@@ -50,7 +50,8 @@ const AddTopicForm = ({ open, setOpen }) => {
   };
 
   return (
-    <div className="w-full mx-auto md:w-96 bg-white opacity-100 p-5 rounded">
+    <div className="w-full mx-auto md:w-96 bg-white opacity-100 p-5 rounded"  data-aos="fade-up"
+    data-aos-duration="1000">
       <div className="flex justify-between items-center pb-2 border-b">
         <h4 className="font-semibold">Add Topic</h4>
         <span>
@@ -71,10 +72,10 @@ const AddTopicForm = ({ open, setOpen }) => {
             type="text"
             onChange={(e) => setTopic(e.target.value)}
             value={topic}
-            className="mt-1 w-full bg-cornflower-blue-50 outline-none text-sm py-1 px-2 rounded"
+            className="mt-1 w-full bg-gray-100 outline-none text-sm py-1 px-2 rounded"
           />
           {topicErr ? (
-            <p className="text-xs text-red-500 ">Please add a topic</p>
+            <p className="text-xs text-red-500 ">Field is empty</p>
           ) : (
             ""
           )}
@@ -88,7 +89,7 @@ const AddTopicForm = ({ open, setOpen }) => {
               onChange={(e) => setTag(e.target.value)}
               value={tag}
               type="text"
-              className=" w-full bg-cornflower-blue-50 outline-none text-sm py-1 px-2 rounded"
+              className=" w-full bg-gray-100 outline-none text-sm py-1 px-2 rounded"
             />
             <button
               onClick={handleAddTag}
@@ -99,16 +100,16 @@ const AddTopicForm = ({ open, setOpen }) => {
             </button>
           </div>
           {tagErr ? (
-            <p className="text-xs text-red-500 ">Please enter a tag</p>
+            <p className="text-xs text-red-500 ">Field is empty</p>
           ) : (
             ""
           )}
         </div>
-        <div className="flex gap-2">
-          {tags.map((item) => {
-            return (
+        <div className="flex gap-2 flex-wrap">
+          {tags.map((item, i) =>
+            i % 3 === 0 ? (
               <div
-                className="p-1 px-2 text-xs bg-cornflower-blue-50 border border-cornflower-blue-400 text-cornflower-blue-400 rounded flex items-center gap-1 "
+                className="p-1 px-2 text-xs bg-yellow-50 border border-yellow-500 text-yellow-500 rounded flex items-center gap-1 "
                 key={item.tagId}
               >
                 <span>{item.tag}</span>
@@ -119,8 +120,38 @@ const AddTopicForm = ({ open, setOpen }) => {
                   className="ml-1 cursor-pointer hover:text-red-500 transition duration-300"
                 />
               </div>
-            );
-          })}
+            ) : (
+              <>
+                {i % 3 === 1 ? (
+                  <div
+                    className="p-1 px-2 text-xs bg-green-50 border border-green-500 text-green-500 rounded flex items-center gap-1 "
+                    key={item.tagId}
+                  >
+                    <span>{item.tag}</span>
+                    <FontAwesomeIcon
+                      icon={faTimes}
+                      size="sm"
+                      onClick={() => handleDeleteTag(item.tagId)}
+                      className="ml-1 cursor-pointer hover:text-red-500 transition duration-300"
+                    />
+                  </div>
+                ) : (
+                  <div
+                    className="p-1 px-2 text-xs bg-red-50 border border-red-500 text-red-500 rounded flex items-center gap-1 "
+                    key={item.tagId}
+                  >
+                    <span>{item.tag}</span>
+                    <FontAwesomeIcon
+                      icon={faTimes}
+                      size="sm"
+                      onClick={() => handleDeleteTag(item.tagId)}
+                      className="ml-1 cursor-pointer hover:text-red-500 transition duration-300"
+                    />
+                  </div>
+                )}
+              </>
+            )
+          )}
         </div>
         <div className="pt-3">
           <button

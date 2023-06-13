@@ -1,21 +1,39 @@
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
-    <div className="w-screen h-screen bg-white flex items-center justify-center text-gray-600">
+    <div className="w-screen h-screen bg-white flex items-center justify-center">
       <div className="text-center">
         {" "}
-        <h2 className=" text-3xl font-semibold">
+        <h2
+          className=" text-3xl font-bold"
+          data-aos="fade-up"
+          data-aos-duration="2000"
+        >
           Speedy Brand Assignment Solution
         </h2>
-        <Link to={"/dashboard"}>
-          <button className="py-2  px-5 text-sm font-medium text-white rounded mt-7 bg-cornflower-blue-700">
-            Get Started <FontAwesomeIcon icon={faArrowRight} className="ml-1" />
-          </button>
-        </Link>
+        <div
+          className="flex gap-3 justify-center"
+          data-aos="fade-up"
+          data-aos-duration="2000"
+        >
+          <Link to={"/dashboard"}>
+            <button className="py-2  px-5 text-sm font-medium text-white rounded mt-7 bg-black">
+              Get Started
+            </button>{" "}
+          </Link>
+          <a
+            href="https://github.com/03brainy-clicks/speedyAssignment"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <button className="py-2 border border-black px-5 text-sm font-medium rounded mt-7 text-black">
+              View Code
+            </button>
+          </a>
+        </div>
+        <Link to={"/dashboard"}></Link>
       </div>
     </div>
   );

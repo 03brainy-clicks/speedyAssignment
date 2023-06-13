@@ -14,7 +14,7 @@ const Modal = ({ children, open, setOpen }) => {
     <Fragment>
       <div
         onClick={handleOverlayClick}
-        className="z-50 fixed w-screen h-screen bg-[#7d95f73f] flex items-center justify-center"
+        className="z-50 fixed w-screen h-screen bg-[#0000003f] flex items-center justify-center"
       >
         <div>{children}</div> 
       </div>
