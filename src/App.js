@@ -226,7 +226,7 @@ function App() {
         <ToastContainer />
         <Routes>
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/preview" element={<Preview />} />
+          <Route path="/preview/:blogId" element={<Preview />} />
           <Route path="/editor/:topicId" element={<Editor />} />
           <Route path="/" element={<Home />} />
         </Routes>

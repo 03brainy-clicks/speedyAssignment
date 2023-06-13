@@ -50,8 +50,11 @@ const AddTopicForm = ({ open, setOpen }) => {
   };
 
   return (
-    <div className="w-full mx-auto md:w-96 bg-white opacity-100 p-5 rounded"  data-aos="fade-up"
-    data-aos-duration="1000">
+    <div
+      className="w-full mx-auto md:w-96 bg-white opacity-100 p-5 rounded"
+      data-aos="fade-up"
+      data-aos-duration="1000"
+    >
       <div className="flex justify-between items-center pb-2 border-b">
         <h4 className="font-semibold">Add Topic</h4>
         <span>

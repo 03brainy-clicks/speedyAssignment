@@ -11,7 +11,8 @@ import Context from "../context/Context";
 import { Link, useNavigate, useParams } from "react-router-dom";
 
 const Editor = () => {
-  const { topicList, handleSaveBlog, currentBlog } = useContext(Context);
+  const { topicList, handleSaveBlog, currentBlog, handleResetBlog } =
+    useContext(Context);
   const [text, setText] = useState(
     currentBlog?.content ? currentBlog.content : ""
   );
@@ -42,7 +43,7 @@ const Editor = () => {
 
   // publish
   const handlePublish = () => {
-    navigate("/preview");
+    navigate(`/preview/${topicId}`);
   };
 
   // image upload handler
@@ -71,6 +72,11 @@ const Editor = () => {
     };
   };
 
+  const handleBack = () => {
+    handleResetBlog();
+    navigate("/dashboard");
+  };
+
   useEffect(() => {
     const quill = editorRef.current.getEditor();
     if (quill) {
@@ -87,10 +93,10 @@ const Editor = () => {
         data-aos-duration="2000"
       >
         <div className=" flex ">
-          <button className="py-2 px-3 transition duration-300 text-xs font-semibold text-gray-500 rounded hover:text-black">
-            <Link to={"/dashboard"}>
+          <button onClick={handleBack} className="py-2 px-3 transition duration-300 text-xs font-semibold text-gray-500 rounded hover:text-black">
+   
               <FontAwesomeIcon icon={faArrowLeft} /> Back
-            </Link>
+      
           </button>
         </div>
 

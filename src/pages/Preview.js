@@ -1,9 +1,13 @@
 import React, { useContext, useEffect, useRef } from "react";
 import Context from "../context/Context";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link, useParams } from "react-router-dom";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 const Preview = () => {
   const { currentBlog } = useContext(Context);
   const blogRef = useRef();
+  const { blogId } = useParams();
 
   useEffect(() => {
     blogRef.current.innerHTML = currentBlog.content;
@@ -16,8 +20,13 @@ const Preview = () => {
         data-aos="fade-up"
         data-aos-duration="2000"
       >
+        <button className="py-2 px-3 transition duration-300 text-xs font-semibold  rounded hover:text-black">
+          <Link to={`/editor/${blogId}`}>
+            <FontAwesomeIcon icon={faArrowLeft} /> Back
+          </Link>
+        </button>
         <h2
-          className="text-3xl font-bold text-center mb-5"
+          className="text-3xl font-bold text-center my-5"
           data-aos="fade-up"
           data-aos-duration="2000"
           data-aos-delay="1000"
