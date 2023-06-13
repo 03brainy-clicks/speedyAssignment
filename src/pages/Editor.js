@@ -133,7 +133,7 @@ const Editor = () => {
       </div>
 
       <div
-        className="lg:w-8/12 md:w-9/12 w-10/12 mx-auto h-full relative overflow-hidden"
+        className="lg:w-8/12 md:w-9/12 w-11/12 mx-auto  relative flex-1 overflow-hidden"
         data-aos="fade-up"
         data-aos-duration="2000"
       >
@@ -141,7 +141,7 @@ const Editor = () => {
           ref={editorRef}
           value={text}
           onChange={handleTextChange}
-          className="h-full bg-white rounded  "
+          className="h-full bg-red-500 rounded overflow-y-scroll "
           modules={{
             toolbar: {
               container: [
