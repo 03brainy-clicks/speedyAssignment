@@ -36,3 +36,14 @@
   width: 100%;
   z-index: 99 !important;
 }
+
+.previous {
+  @apply text-gray-500 hover:text-black active:text-black;
+}
+.next {
+  @apply text-gray-500 hover:text-black active:text-black;
+}
+
+.disabled {
+  @apply text-gray-500 hover:text-gray-500 active:text-gray-500 ;
+}
