@@ -21,24 +21,25 @@ const Preview = () => {
         data-aos-duration="2000"
       >
         <div className="sticky top-0 bg-white z-10  py-5">
-        <div className="flex justify-between items-center">
-          <button className="py-2 px-3 transition duration-300 text-xs font-semibold  rounded hover:text-black">
-            <Link to={`/editor/${blogId}`}>
-              <FontAwesomeIcon icon={faArrowLeft} /> <span className="sm:inline hidden">Back</span>
-            </Link>
-          </button>
-          <span className="text-xs font-semibold uppercase">
-            {currentBlog.tone}
-          </span>
-        </div>
-        <h2
-          className="text-3xl font-bold text-center my-5"
-          data-aos="fade-up"
-          data-aos-duration="2000"
-          data-aos-delay="1000"
-        >
-          {currentBlog.topic}
-        </h2>
+          <div className="flex justify-between items-center">
+            <button className="py-2 px-3 transition duration-300 text-xs font-semibold  rounded hover:text-black">
+              <Link to={`/editor/${blogId}`}>
+                <FontAwesomeIcon icon={faArrowLeft} />{" "}
+                <span className="sm:inline hidden">Back</span>
+              </Link>
+            </button>
+            <span className="text-xs font-semibold uppercase">
+              {currentBlog.tone}
+            </span>
+          </div>
+          <h2
+            className="text-3xl font-bold text-center my-5"
+            data-aos="fade-up"
+            data-aos-duration="2000"
+            data-aos-delay="1000"
+          >
+            {currentBlog.topic}
+          </h2>
         </div>
         <div
           ref={blogRef}

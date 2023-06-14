@@ -11,7 +11,6 @@ import Context from "../context/Context";
 import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 
-
 const Editor = () => {
   const { topicList, handleSaveBlog, currentBlog, handleResetBlog } =
     useContext(Context);
@@ -34,17 +33,16 @@ const Editor = () => {
   // save
   const handleSave = (e) => {
     e.preventDefault();
-    if(tone){
+    if (tone) {
       let blogDetails = {
         topic: currentTopic?.topic,
         content: text,
         tone: tone,
       };
       handleSaveBlog(blogDetails);
-      toast.success("Blog Saved")
-    }else
-    {
-      toast.error("Please select tone")
+      toast.success("Blog Saved");
+    } else {
+      toast.error("Please select tone");
     }
   };
 
@@ -79,6 +77,7 @@ const Editor = () => {
     };
   };
 
+  // backfunctionality
   const handleBack = () => {
     handleResetBlog();
     navigate("/dashboard");
@@ -116,7 +115,7 @@ const Editor = () => {
           <select
             onChange={(e) => setTone(e.target.value)}
             value={tone}
-            className="py-2 text-xs px-3 border border-black text-black font-semibold rounded outline-none"
+            className="py-2 text-xs px-3 border border-black text-black bg-white font-semibold rounded outline-none"
           >
             <option className="hidden">Select Tone</option>
             <option value="Formal">Formal</option>
