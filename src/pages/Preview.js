@@ -33,7 +33,7 @@ const Preview = () => {
             </span>
           </div>
           <h2
-            className="text-3xl font-bold text-center my-5"
+            className="text-3xl font-bold text-center my-5 "
             data-aos="fade-up"
             data-aos-duration="2000"
             data-aos-delay="1000"
@@ -43,7 +43,7 @@ const Preview = () => {
         </div>
         <div
           ref={blogRef}
-          className="overflow-hidden"
+          className="overflow-hidden blog-content"
           data-aos="fade-up"
           data-aos-duration="2000"
           data-aos-delay="2000"

@@ -28,6 +28,10 @@
   overflow: hidden !important;
 }
 
+.ql-container .ql-editor p img {
+  display: inline;
+}
+
 .ql-toolbar.ql-snow {
   border: none !important;
   position: sticky !important;
@@ -45,5 +49,24 @@
 }
 
 .disabled {
-  @apply text-gray-500 hover:text-gray-500 active:text-gray-500 hidden;
+  @apply text-gray-500 hover:text-gray-500 active:text-gray-500;
+}
+
+.blog-content h1 {
+  @apply text-3xl font-bold;
+}
+.blog-content h2 {
+  @apply text-2xl font-bold;
+}
+.blog-content h3 {
+  @apply text-xl font-bold;
+}
+.blog-content h4 {
+  @apply text-lg font-bold;
+}
+.blog-content h5 {
+  @apply font-bold;
+}
+.blog-content h6 {
+  @apply text-sm font-bold;
 }

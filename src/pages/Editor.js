@@ -17,7 +17,7 @@ const Editor = () => {
   const [text, setText] = useState(
     currentBlog?.content ? currentBlog.content : ""
   );
-  const [tone, setTone] = useState("");
+  const [tone, setTone] = useState("Formal");
   const navigate = useNavigate();
   const editorRef = useRef(null);
 
