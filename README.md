@@ -6,7 +6,7 @@ This project contains the source code for a web application built with React and
 
 To run the application locally, follow these steps:
 
-1. Clone the repository: `git clone https://github.com/your/repository.git`
+1. Clone the repository: [`git clone https://github.com/03brainy-clicks/speedyAssignment.git`]
 2. Navigate to the project directory: `cd project-directory`
 3. Install the dependencies: `npm install`
 4. Start the development server: `npm start`
