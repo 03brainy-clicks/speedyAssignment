@@ -1,4 +1,4 @@
-# Project Name
+# SpeedyAssignment
 
 This project contains the source code for a web application built with React and Tailwind CSS. It includes components and styles for a header section, loader, and custom CSS styles.
 
