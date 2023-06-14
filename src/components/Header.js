@@ -21,13 +21,13 @@ const Header = () => {
 
   return (
     <>
-      <div className="py-5 bg-white"   data-aos="fade-down"
-          data-aos-duration="2000">
+      <div
+        className="py-5 bg-white"
+        data-aos="fade-down"
+        data-aos-duration="2000"
+      >
         {/* headings */}
-        <div
-          className="lg:w-8/12 md:w-9/12 w-10/12 mx-auto  "
-        
-        >
+        <div className="lg:w-8/12 md:w-9/12 w-10/12 mx-auto  ">
           <div className=" text-gray-400 text-xs font-medium flex gap-2 items-center">
             <FontAwesomeIcon icon={faHome} size="sm" />
             <FontAwesomeIcon icon={faGreaterThan} size="xs" />
@@ -42,9 +42,11 @@ const Header = () => {
       </div>
 
       {/* filters */}
-      <div className="lg:w-8/12 md:w-9/12 w-11/12 mx-auto bg-white p-4 rounded"   data-aos="fade-down"
-          data-aos-duration="2000" 
-          >
+      <div
+        className="lg:w-8/12 md:w-9/12 w-11/12 mx-auto bg-white p-4 rounded"
+        data-aos="fade-down"
+        data-aos-duration="2000"
+      >
         <div className=" flex justify-between items-center flex-wrap gap-5 ">
           <div className=" hidden sm:flex gap-5 text-sm font-medium item-center flex-wrap">
             <div
@@ -102,7 +104,7 @@ const Header = () => {
             <select
               onChange={(e) => setActiveState(e.target.value)}
               value={activeState}
-              className="py-2 text-xs px-3 border sm:hidden border-black text-black font-semibold rounded outline-none"
+              className="py-2 text-xs px-3 border sm:hidden border-black text-black font-semibold bg-white rounded outline-none"
             >
               <option value="all"> All </option>
               <option value="custom">Custom</option>
