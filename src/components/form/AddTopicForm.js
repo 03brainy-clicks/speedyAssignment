@@ -60,7 +60,7 @@ const AddTopicForm = ({ open, setOpen }) => {
   // Rendering the add topic form
   return (
     <div
-      className="w-full mx-auto md:w-96 bg-white opacity-100 p-5 rounded"
+      className="mx-auto w-80 md:w-96 bg-white opacity-100 p-5 rounded"
       data-aos="fade-up"
       data-aos-duration="1000"
     >
