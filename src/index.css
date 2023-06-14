@@ -45,5 +45,5 @@
 }
 
 .disabled {
-  @apply text-gray-500 hover:text-gray-500 active:text-gray-500 ;
+  @apply text-gray-500 hover:text-gray-500 active:text-gray-500 hidden;
 }
