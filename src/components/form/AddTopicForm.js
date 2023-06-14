@@ -1,19 +1,25 @@
+// Importing necessary dependencies and modules
 import { faPlus, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useContext, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import Context from "../../context/Context";
 
+// Component for adding a new topic
 const AddTopicForm = ({ open, setOpen }) => {
+  // State variables for topic, tag, and tags
   const [topic, setTopic] = useState("");
   const [tag, setTag] = useState("");
   const [tags, setTags] = useState([]);
 
+  // Accessing the handleTopicAdd function from the context
   const { handleTopicAdd } = useContext(Context);
 
+  // State variables for topic and tag errors
   const [topicErr, setTopicErr] = useState(false);
   const [tagErr, setTagErr] = useState(false);
 
+  // Function to handle adding a new tag
   const handleAddTag = (e) => {
     e.preventDefault();
     if (tag) {
@@ -29,10 +35,12 @@ const AddTopicForm = ({ open, setOpen }) => {
     }
   };
 
+  // Function to handle deleting a tag
   const handleDeleteTag = (tagId) => {
     setTags(tags.filter((item) => item.tagId !== tagId));
   };
 
+  // Function to handle adding a new topic
   const handleAdd = (e) => {
     e.preventDefault();
     if (topic) {
@@ -49,6 +57,7 @@ const AddTopicForm = ({ open, setOpen }) => {
     }
   };
 
+  // Rendering the add topic form
   return (
     <div
       className="w-full mx-auto md:w-96 bg-white opacity-100 p-5 rounded"
@@ -67,6 +76,7 @@ const AddTopicForm = ({ open, setOpen }) => {
         </span>
       </div>
       <form className="mt-5 space-y-3">
+        {/* Topic input */}
         <div>
           <label htmlFor="topic" className="text-sm font-medium">
             Topic
@@ -83,6 +93,7 @@ const AddTopicForm = ({ open, setOpen }) => {
             ""
           )}
         </div>
+        {/* Tag input */}
         <div>
           <label htmlFor="topic" className="text-sm font-medium">
             Tag
@@ -108,6 +119,7 @@ const AddTopicForm = ({ open, setOpen }) => {
             ""
           )}
         </div>
+        {/* Displaying tags */}
         <div className="flex gap-2 flex-wrap">
           {tags.map((item, i) =>
             i % 3 === 0 ? (
@@ -156,6 +168,7 @@ const AddTopicForm = ({ open, setOpen }) => {
             )
           )}
         </div>
+        {/* Submit button */}
         <div className="pt-3">
           <button
             onClick={handleAdd}

@@ -16,7 +16,11 @@ AOS.init();
 
 function App() {
   const [activeState, setActiveState] = useState("all");
+  const [activeTone, setActiveTone] = useState(false);
   const [topicList, setTopicList] = useState([
+     // Initial topic list
+    // Each topic contains a category, topicId, topic, and tags
+
     {
       category: "mission",
       topicId: "tm1",
@@ -188,22 +192,22 @@ function App() {
 
   const [currentBlog, setCurrentBlog] = useState("");
 
-  // topic delete
+  // Handle topic delete
   const handleTopicDelete = (topicId) => {
     setTopicList(topicList.filter((item) => item.topicId !== topicId));
   };
 
-  // topic add
+// Handle topic add
   const handleTopicAdd = (topic) => {
     setTopicList([topic, ...topicList]);
   };
 
-  // save blog
+  // Handle saving blog
   const handleSaveBlog = (blogData) => {
     setCurrentBlog(blogData);
   };
 
-  //reset blog
+ // Handle resetting blog
   const handleResetBlog = () => {
     setCurrentBlog("");
   };
@@ -221,6 +225,8 @@ function App() {
           handleResetBlog,
           handleSaveBlog,
           currentBlog,
+          activeTone,
+          setActiveTone,
         }}
       >
         <ToastContainer

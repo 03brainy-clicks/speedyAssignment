@@ -10,6 +10,7 @@ const Preview = () => {
   const { blogId } = useParams();
 
   useEffect(() => {
+    // Set the inner HTML of the blog content container to the current blog's content
     blogRef.current.innerHTML = currentBlog.content;
   }, [currentBlog.content]);
 
@@ -22,16 +23,19 @@ const Preview = () => {
       >
         <div className="sticky top-0 bg-white z-10  py-5">
           <div className="flex justify-between items-center">
+            {/* Back button */}
             <button className="py-2 px-3 transition duration-300 text-xs font-semibold  rounded hover:text-black">
               <Link to={`/editor/${blogId}`}>
                 <FontAwesomeIcon icon={faArrowLeft} />{" "}
                 <span className="sm:inline hidden">Back</span>
               </Link>
             </button>
+            {/* Tone label */}
             <span className="text-xs font-semibold uppercase">
               {currentBlog.tone}
             </span>
           </div>
+          {/* Blog topic */}
           <h2
             className="text-3xl font-bold text-center my-5 "
             data-aos="fade-up"
@@ -41,6 +45,7 @@ const Preview = () => {
             {currentBlog.topic}
           </h2>
         </div>
+        {/* Blog content */}
         <div
           ref={blogRef}
           className="overflow-hidden blog-content"

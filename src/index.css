@@ -1,37 +1,49 @@
+/* Apply base styles from Tailwind CSS */
 @tailwind base;
+
+/* Apply component styles from Tailwind CSS */
 @tailwind components;
+
+/* Apply utility styles from Tailwind CSS */
 @tailwind utilities;
 
+/* Styles for the .btn class */
 .btn {
-  @apply bg-black  duration-300 transition;
+  @apply bg-black duration-300 transition;
 }
 
+/* Custom styles for the scrollbar */
 *::-webkit-scrollbar {
   width: 2px !important;
 }
 
-/* Track */
+/* Custom styles for the scrollbar track (commented out) */
 /* *::-webkit-scrollbar-track {
   background: #ffffff !important;
 } */
 
-/* Handle */
+/* Custom styles for the scrollbar thumb */
 *::-webkit-scrollbar-thumb {
   background: #f5f5f5 !important;
 }
 
+/* Styles for the Quill editor container */
 .ql-container.ql-snow {
   border: none !important;
   overflow: hidden !important;
 }
+
+/* Styles for the Quill editor */
 .ql-container.ql-editor {
   overflow: hidden !important;
 }
 
+/* Styles for images inside Quill editor paragraphs */
 .ql-container .ql-editor p img {
   display: inline;
 }
 
+/* Styles for the Quill toolbar */
 .ql-toolbar.ql-snow {
   border: none !important;
   position: sticky !important;
@@ -41,17 +53,22 @@
   z-index: 99 !important;
 }
 
+/* Styles for the "previous" class */
 .previous {
   @apply text-gray-500 hover:text-black active:text-black;
 }
+
+/* Styles for the "next" class */
 .next {
   @apply text-gray-500 hover:text-black active:text-black;
 }
 
+/* Styles for the "disabled" class */
 .disabled {
   @apply text-gray-500 hover:text-gray-500 active:text-gray-500;
 }
 
+/* Styles for heading elements inside .blog-content */
 .blog-content h1 {
   @apply text-3xl font-bold;
 }

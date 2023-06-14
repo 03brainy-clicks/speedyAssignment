@@ -1,32 +1,32 @@
 import React, { useContext, useState } from "react";
 
-// icons
+// Importing necessary icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faGreaterThan,
-  faHome,
-  faPlus,
-} from "@fortawesome/free-solid-svg-icons";
+import { faGreaterThan, faHome, faPlus } from "@fortawesome/free-solid-svg-icons";
 
-// context
+// Importing context
 import Context from "../context/Context";
 import Modal from "../utils/Modal";
 import AddTopicForm from "./form/AddTopicForm";
 
+// Component for rendering the header
 const Header = () => {
+  // State for controlling the modal visibility
   const [open, setOpen] = useState(false);
 
-  // context
+  // Accessing activeState and setActiveState from the context
   const { activeState, setActiveState } = useContext(Context);
 
+  // Rendering the header
   return (
     <>
+      {/* Header section */}
       <div
         className="py-5 bg-white"
         data-aos="fade-down"
         data-aos-duration="2000"
       >
-        {/* headings */}
+        {/* Headings */}
         <div className="lg:w-8/12 md:w-9/12 w-10/12 mx-auto  ">
           <div className=" text-gray-400 text-xs font-medium flex gap-2 items-center">
             <FontAwesomeIcon icon={faHome} size="sm" />
@@ -41,13 +41,14 @@ const Header = () => {
         </div>
       </div>
 
-      {/* filters */}
+      {/* Filters section */}
       <div
         className="lg:w-8/12 md:w-9/12 w-11/12 mx-auto bg-white p-4 rounded"
         data-aos="fade-down"
         data-aos-duration="2000"
       >
         <div className=" flex justify-between items-center flex-wrap gap-5 ">
+          {/* Filter options for larger screens */}
           <div className=" hidden sm:flex gap-5 text-sm font-medium item-center flex-wrap">
             <div
               className={`p-2 cursor-pointer border-b-2 px-5 transition duration-300  ${
@@ -59,6 +60,7 @@ const Header = () => {
             >
               All
             </div>
+            {/* Additional filter options */}
             <div
               className={`p-2 cursor-pointer border-b-2 px-5 transition duration-300  ${
                 activeState === "custom"
@@ -100,6 +102,8 @@ const Header = () => {
               Product
             </div>
           </div>
+
+          {/* Filter options for smaller screens */}
           <div>
             <select
               onChange={(e) => setActiveState(e.target.value)}
@@ -113,6 +117,8 @@ const Header = () => {
               <option value="product">Product</option>
             </select>
           </div>
+
+          {/* Button for adding a new topic */}
           <div>
             <button
               onClick={() => setOpen(!open)}
@@ -121,6 +127,7 @@ const Header = () => {
               <FontAwesomeIcon icon={faPlus} />{" "}
               <span className="hidden sm:inline">New Topic</span>
             </button>
+            {/* Modal for adding a new topic */}
             <Modal open={open} setOpen={setOpen}>
               <AddTopicForm open={open} setOpen={setOpen} />
             </Modal>

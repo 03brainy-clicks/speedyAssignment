@@ -12,12 +12,22 @@ import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const Editor = () => {
-  const { topicList, handleSaveBlog, currentBlog, handleResetBlog } =
-    useContext(Context);
+  // Accessing values from the Context
+  const {
+    topicList,
+    handleSaveBlog,
+    currentBlog,
+    handleResetBlog,
+    activeTone,
+    setActiveTone,
+  } = useContext(Context);
+
+  // State variables
   const [text, setText] = useState(
     currentBlog?.content ? currentBlog.content : ""
   );
-  const [tone, setTone] = useState("Formal");
+  console.log("Active tone: ", activeTone);
+
   const navigate = useNavigate();
   const editorRef = useRef(null);
 
@@ -25,19 +35,19 @@ const Editor = () => {
 
   const currentTopic = topicList.find((item) => item.topicId === topicId);
 
-  // editor text handler
+  // Editor text handler
   const handleTextChange = (value) => {
     setText(value);
   };
 
-  // save
+  // Save functionality
   const handleSave = (e) => {
     e.preventDefault();
-    if (tone) {
+    if (activeTone) {
       let blogDetails = {
         topic: currentTopic?.topic,
         content: text,
-        tone: tone,
+        tone: activeTone,
       };
       handleSaveBlog(blogDetails);
       toast.success("Blog Saved");
@@ -46,12 +56,12 @@ const Editor = () => {
     }
   };
 
-  // publish
+  // Publish functionality
   const handlePublish = () => {
     navigate(`/preview/${topicId}`);
   };
 
-  // image upload handler
+  // Image upload handler
   const imageHandler = () => {
     const input = document.createElement("input");
     input.setAttribute("type", "file");
@@ -63,7 +73,8 @@ const Editor = () => {
       if (file) {
         const reader = new FileReader();
         reader.onloadend = () => {
-          const base64String = reader.result.split(",")[1]; // Extract the base64 string without the data:image/*;base64 prefix
+          const base64String = reader.result.split(",")[1];
+          // Extract the base64 string without the data:image/*;base64 prefix
           const imageUrl = `data:${file.type};base64,${base64String}`;
 
           const quill = editorRef.current.getEditor();
@@ -77,9 +88,10 @@ const Editor = () => {
     };
   };
 
-  // backfunctionality
+  // Back functionality
   const handleBack = () => {
     handleResetBlog();
+    setActiveTone(false);
     navigate("/dashboard");
   };
 
@@ -93,12 +105,13 @@ const Editor = () => {
 
   return (
     <div className="w-screen h-screen bg-gray-100 flex flex-col justify-between gap-7">
+      {/* Header */}
       <div
-        className="bg-white flex justify-between p-3 items-center gap-7  "
+        className="bg-white flex justify-between p-3 items-center gap-7"
         data-aos="fade-down"
         data-aos-duration="2000"
       >
-        <div className=" flex ">
+        <div className="flex">
           <button
             onClick={handleBack}
             className="py-2 px-3 transition duration-300 text-xs font-semibold text-gray-500 rounded hover:text-black"
@@ -109,29 +122,32 @@ const Editor = () => {
         </div>
 
         <div className="border overflow-hidden py-2 px-4 text-xs flex-1 font-medium rounded text-center line-clamp-1">
-          <span className="line-clamp-1"> {currentTopic.topic} </span>
+          <span className="line-clamp-1">{currentTopic.topic}</span>
         </div>
         <div className="flex gap-2">
+          {/* Tone selection */}
           <select
-            onChange={(e) => setTone(e.target.value)}
-            value={tone}
+            onChange={(e) => setActiveTone(e.target.value)}
+            value={activeTone}
             className="py-2 text-xs px-3 border border-black text-black bg-white font-semibold rounded outline-none"
           >
             <option className="hidden">Select Tone</option>
             <option value="Formal">Formal</option>
             <option value="Casual">Casual</option>
           </select>
+          {/* Save button */}
           <button
             onClick={handleSave}
-            className="btn py-2  px-3 text-xs font-semibold text-white rounded "
+            className="btn py-2  px-3 text-xs font-semibold text-white rounded"
           >
             <FontAwesomeIcon icon={faSave} />
             <span className="hidden sm:inline"> Save</span>
           </button>
 
+          {/* Publish button */}
           <button
             onClick={handlePublish}
-            className="btn py-2  px-3 text-xs font-semibold text-white rounded "
+            className="btn py-2  px-3 text-xs font-semibold text-white rounded"
           >
             <FontAwesomeIcon icon={faRocket} />
             <span className="hidden sm:inline"> Publish</span>
@@ -139,6 +155,7 @@ const Editor = () => {
         </div>
       </div>
 
+      {/* Editor */}
       <div
         className="lg:w-8/12 md:w-9/12 w-11/12 mx-auto  relative flex-1 overflow-hidden"
         data-aos="fade-up"
@@ -148,7 +165,7 @@ const Editor = () => {
           ref={editorRef}
           value={text}
           onChange={handleTextChange}
-          className="h-full bg-white rounded overflow-y-scroll "
+          className="h-full bg-white rounded overflow-y-scroll"
           modules={{
             toolbar: {
               container: [
@@ -166,6 +183,8 @@ const Editor = () => {
           id="txtDescription"
         />
       </div>
+
+      {/* Footer */}
       <div className="p-4 bg-white text-xs text-center text-gray-500 font-medium">
         <span>
           Created by{" "}
